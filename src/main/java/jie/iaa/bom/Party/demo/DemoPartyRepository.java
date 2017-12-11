@@ -11,30 +11,41 @@ import jie.iaa.bom.Party.VirtualParty;
 import jie.iaa.bom.Party.repository.IPartyRepository;
 
 public class DemoPartyRepository implements IPartyRepository {
-	Map<String, Object> map = new HashMap<String, Object>();
+	private Map<String, Object> map = new HashMap<String, Object>();
+	private static Long id = 1L;
 
 	@Override
 	public void saveOnePerson(Person lhs) {
+		if (lhs.getId() == null)
+			lhs.setId(id++);
 		map.put("Person" + lhs.getId(), lhs);
 	}
 
 	@Override
 	public void saveOneOrganisation(Organisation lhs) {
+		if (lhs.getId() == null)
+			lhs.setId(id++);
 		map.put("Organisation" + lhs.getId(), lhs);
 	}
 
 	@Override
 	public void saveOnePartyRole(PartyRole lhs) {
+		if (lhs.getId() == null)
+			lhs.setId(id++);
 		map.put("PartyRole" + lhs.getId(), lhs);
 	}
 
 	@Override
 	public void saveOneVirtualParty(VirtualParty lhs) {
+		if (lhs.getId() == null)
+			lhs.setId(id++);
 		map.put("VirtualParty" + lhs.getId(), lhs);
 	}
 
 	@Override
 	public void saveOnePartyName(PartyName lhs) {
+		if (lhs.getId() == null)
+			lhs.setId(id++);
 		map.put("PartyName" + lhs.getId(), lhs);
 	}
 

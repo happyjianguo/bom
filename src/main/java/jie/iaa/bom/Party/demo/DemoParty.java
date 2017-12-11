@@ -53,12 +53,10 @@ public class DemoParty {
 	}
 
 	public static IPartyRepository repo = new DemoPartyRepository();
-	public static Long id = 1L;
 
 	/** 智能终端VirtualParty */
 	public static VirtualParty createVirtualParty(Long orderId) {
 		VirtualParty ret = new VirtualParty();
-		ret.setId(id++);
 		ret.setSerialNo(UUID.randomUUID().toString());
 		// 业务订单号
 		ret.setOrderId(orderId);
@@ -70,7 +68,6 @@ public class DemoParty {
 	/** VirtualParty PartyName */
 	public static PartyName createVirtualPartyPartyName() {
 		PartyName ret = new PartyName();
-		ret.setId(id++);
 		ret.setFullName("智能终端-投保向导系统");
 		ret.setShortName("投保向导系统");
 		ret.setNickName("智能终端");
@@ -85,7 +82,6 @@ public class DemoParty {
 	/** 投保人Person */
 	public static Person createPersonPolicyholder(Long orderId) {
 		Person ret = new Person();
-		ret.setId(id++);
 		ret.setName("李四");
 		ret.setIdType(PartyConstants.PersonIdTypeID);
 		ret.setIdNo("321081198001295243");
@@ -100,7 +96,6 @@ public class DemoParty {
 	/** 被保险人Person */
 	public static Person createPersonInsured(Long orderId) {
 		Person ret = new Person();
-		ret.setId(id++);
 		ret.setName("张三");
 		ret.setIdType(PartyConstants.PersonIdTypeID);
 		ret.setIdNo("23090419951228144X");
@@ -115,7 +110,6 @@ public class DemoParty {
 	/** PartyRoleInAgreement */
 	public static PartyRole createPartyRoleInAgreement(Long orderId, Long rolePlayerId, String code) {
 		PartyRoleInAgreement ret = new PartyRoleInAgreement();
-		ret.setId(id++);
 		ret.setStatus(PartyConstants.PartyRoleStatusActive);
 		ret.setStatusDate(new Date());
 		ret.setPriorityLevel(PartyConstants.PartyRolePriorityLevelPrimary);
@@ -133,7 +127,6 @@ public class DemoParty {
 	/** Person PartyName */
 	public static PartyName createPersonPartyName() {
 		PartyName ret = new PartyName();
-		ret.setId(id++);
 		ret.setFullName("李四");
 		ret.setShortName("李");
 		ret.setNickName("寻找小小");
