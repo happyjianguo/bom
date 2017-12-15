@@ -52,10 +52,10 @@ public class DemoParty {
 		repo.saveOnePerson(personPolicyholder);
 	}
 
-	public static IPartyRepository repo = new DemoPartyRepository();
+	private static IPartyRepository repo = new DemoPartyRepository();
 
 	/** 智能终端VirtualParty */
-	public static VirtualParty createVirtualParty(Long orderId) {
+	private static VirtualParty createVirtualParty(Long orderId) {
 		VirtualParty ret = new VirtualParty();
 		ret.setSerialNo(UUID.randomUUID().toString());
 		// 业务订单号
@@ -66,7 +66,7 @@ public class DemoParty {
 	}
 
 	/** VirtualParty PartyName */
-	public static PartyName createVirtualPartyPartyName() {
+	private static PartyName createVirtualPartyPartyName() {
 		PartyName ret = new PartyName();
 		ret.setFullName("智能终端-投保向导系统");
 		ret.setShortName("投保向导系统");
@@ -80,7 +80,7 @@ public class DemoParty {
 	}
 
 	/** 投保人Person */
-	public static Person createPersonPolicyholder(Long orderId) {
+	private static Person createPersonPolicyholder(Long orderId) {
 		Person ret = new Person();
 		ret.setName("李四");
 		ret.setIdType(PartyConstants.PersonIdTypeID);
@@ -94,7 +94,7 @@ public class DemoParty {
 	}
 
 	/** 被保险人Person */
-	public static Person createPersonInsured(Long orderId) {
+	private static Person createPersonInsured(Long orderId) {
 		Person ret = new Person();
 		ret.setName("张三");
 		ret.setIdType(PartyConstants.PersonIdTypeID);
@@ -108,7 +108,7 @@ public class DemoParty {
 	}
 
 	/** PartyRoleInAgreement */
-	public static PartyRole createPartyRoleInAgreement(Long orderId, Long rolePlayerId, String code) {
+	private static PartyRole createPartyRoleInAgreement(Long orderId, Long rolePlayerId, String code) {
 		PartyRoleInAgreement ret = new PartyRoleInAgreement();
 		ret.setStatus(PartyConstants.PartyRoleStatusActive);
 		ret.setStatusDate(new Date());
@@ -125,7 +125,7 @@ public class DemoParty {
 	}
 
 	/** Person PartyName */
-	public static PartyName createPersonPartyName() {
+	private static PartyName createPersonPartyName() {
 		PartyName ret = new PartyName();
 		ret.setFullName("李四");
 		ret.setShortName("李");

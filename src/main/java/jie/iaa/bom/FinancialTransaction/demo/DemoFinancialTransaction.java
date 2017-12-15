@@ -35,16 +35,16 @@ public class DemoFinancialTransaction {
 		}
 	}
 
-	public static IFinancialTransactionRepository repo = new DemoFinancialTransactionRepository();
-	public static FinancialTransactionService svs = new FinancialTransactionService();
+	private static IFinancialTransactionRepository repo = new DemoFinancialTransactionRepository();
+	private static FinancialTransactionService svs = new FinancialTransactionService();
 
-	public static Long payeeAccountId = 10086L; // 供应商账户ID
-	public static Long payorAccountId = 999L; // 用户账户ID
-	public static Long organisationId = 10000L; // 供应商的组织ID
-	public static BigDecimal dueAmount = BigDecimal.valueOf(100);
+	private static Long payeeAccountId = 10086L; // 供应商账户ID
+	private static Long payorAccountId = 999L; // 用户账户ID
+	private static Long organisationId = 10000L; // 供应商的组织ID
+	private static BigDecimal dueAmount = BigDecimal.valueOf(100);
 
 	/** PaymentDue */
-	public static PaymentDue createPaymentDue(Long orderId) {
+	private static PaymentDue createPaymentDue(Long orderId) {
 		Date now = new Date();
 		PaymentDue ret = new PaymentDue();
 		ret.setAmount(dueAmount);
@@ -60,7 +60,7 @@ public class DemoFinancialTransaction {
 	}
 
 	/** Payment */
-	public static Payment createPayment(Long orderId) {
+	private static Payment createPayment(Long orderId) {
 		Date now = new Date();
 		Payment ret = new Payment();
 		ret.setAmount(BigDecimal.valueOf(70));
