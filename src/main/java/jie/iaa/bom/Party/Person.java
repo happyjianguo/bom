@@ -2,25 +2,26 @@ package jie.iaa.bom.Party;
 
 import java.util.Date;
 
+import jie.iaa.bom.Party.utils.PartyConstants;
+
 public class Person extends Party {
 	private Long id;
 	// 基本信息
-	private String name; // 姓名
-	private String idType; // 证件类型 PersonIdType enum
+	private String idType = PartyConstants.PersonIdTypeID; // 证件类型
 	private String idNo; // 证件号码
 	private String mobile; // 手机号码
 	private Date birthDate; // 出生日期
 	private Date deathDate; // 死亡日期
-	private String gender; // 性别 PersonGender enum
+	private String gender = PartyConstants.PersonGenderUnknown; // 性别
 	// 教育背景
-	private String educationLevel; // 教育水平 PersonEducationLevel enum
+	private String educationLevel = PartyConstants.PersonEducationLevelNone; // 教育水平
 	// 职业信息
 	private Long employerId; // is employee of employer(Party)
-	private String employmentStatus; // 雇佣状况 PersonEmploymentStatus enum
+	private String employmentStatus = PartyConstants.PersonEmploymentStatusContractual; // 雇佣状况
 	private String previousEmployer; // 之前雇主
 	private String currentEmployer; // 当前雇主
 	// 婚姻信息
-	private String maritalStatus; // 婚姻状况 PersonMaritalStatus enum
+	private String maritalStatus = PartyConstants.PersonMaritalStatusUnknown; // 婚姻状况
 	private String maritalStatusDate; // 婚姻状况时间
 
 	/**
@@ -39,14 +40,6 @@ public class Person extends Party {
 
 	public void setId(Long id) {
 		this.id = id;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
 	}
 
 	public String getIdType() {
@@ -107,6 +100,11 @@ public class Person extends Party {
 
 	public Long getEmployerId() {
 		return employerId;
+	}
+
+	@Deprecated
+	public void setEmployerId(Long employerId) {
+		this.employerId = employerId;
 	}
 
 	public String getEmploymentStatus() {

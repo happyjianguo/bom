@@ -2,14 +2,14 @@ package jie.iaa.bom.Party;
 
 public abstract class RolePlayer {
 	protected Long orderId; // 订单号
-	protected Long partyNameId; // has for name (PartyName)
+	protected Long partyNameId; // has for name(PartyName)
 	protected String description;
 
 	/**
 	 * 维护PartyName和RolePlayer的关联关系role player naming
 	 * 
 	 * @param partyNameId
-	 *            has for name (PartyName)
+	 *            has for name(PartyName)
 	 */
 	public void maintainPartyName(Long partyNameId) {
 		this.partyNameId = partyNameId;
@@ -25,6 +25,11 @@ public abstract class RolePlayer {
 
 	public Long getPartyNameId() {
 		return partyNameId;
+	}
+
+	@Deprecated
+	public void setPartyNameId(Long partyNameId) {
+		this.partyNameId = partyNameId;
 	}
 
 	public String getDescription() {

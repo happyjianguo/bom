@@ -14,30 +14,66 @@ public class PartyConstants {
 	public static final String PersonGenderUnknown = "Unknown";
 
 	// === Person educationLevel enum ===
-	/** UnderGraduate */
-	public static final String PersonEducationLevelUnderGraduate = "UnderGraduate";
-	/** PostGraduate */
-	public static final String PersonEducationLevelPostGraduate = "PostGraduate";
+	/** 高中HighSchool */
+	public static final String PersonEducationLevelHighSchool = "HighSchool";
+	/** 学士Bachelor */
+	public static final String PersonEducationLevelBachelor = "Bachelor";
+	/** 硕士Master */
+	public static final String PersonEducationLevelMaster = "Master";
+	/** None */
+	public static final String PersonEducationLevelNone = "None";
 
 	// === Person employmentStatus enum ===
-	/** Employee */
-	public static final String PersonEmploymentStatusEmployee = "Employee";
+	/** 合同聘用Contractual */
+	public static final String PersonEmploymentStatusContractual = "Contractual";
+	/** 全职FullTime */
+	public static final String PersonEmploymentStatusFullTime = "FullTime";
+	/** 兼职PartTime */
+	public static final String PersonEmploymentStatusPartTime = "PartTime";
+	/** 退休Retired */
+	public static final String PersonEmploymentStatusRetired = "Retired";
 
 	// === Person maritalStatus enum ===
-	/** Married */
+	/** 已婚Married */
 	public static final String PersonMaritalStatusMarried = "Married";
-	/** Unmarried */
+	/** 未婚Unmarried */
 	public static final String PersonMaritalStatusUnmarried = "Unmarried";
+	/** 离异Divorced */
+	public static final String PersonMaritalStatusDivorced = "Divorced";
 	/** Unknown */
 	public static final String PersonMaritalStatusUnknown = "Unknown";
 
-	// === PartyRole status enum ===
+	// === Organisation type enum ===
+	/** 公司Company */
+	public static final String OrganisationTypeCompany = "Company";
+	/** 分公司Branch */
+	public static final String OrganisationTypeBranch = "Branch";
+	/** 部门Department */
+	public static final String OrganisationTypeDepartment = "Department";
+	/** 团队Team */
+	public static final String OrganisationTypeTeam = "Team";
+	/** 家庭HouseHold */
+	public static final String OrganisationTypeHouseHold = "HouseHold";
+
+	// === Organisation status enum ===
 	/** Active */
-	public static final String PartyRoleStatusActive = "Active";
-	/** Suspended */
-	public static final String PartyRoleStatusSuspended = "Suspended";
-	/** Terminated */
-	public static final String PartyRoleStatusTerminated = "Terminated";
+	public static final String OrganisationStatusActive = "Active";
+	/** Stopped */
+	public static final String OrganisationStatusStopped = "Stopped";
+
+	// === VirtualParty type enum ===
+	/** 移动设备MobileDevice */
+	public static final String VirtualPartyTypeMobileDevice = "MobileDevice";
+
+	// === PartyRole status enum ===
+	/** 开始Commenced */
+	public static final String PartyRoleStatusCommenced = "Commenced";
+	/** 辞职Resignation */
+	public static final String PartyRoleStatusResignation = "Resignation";
+	/** 退休Retirement */
+	public static final String PartyRoleStatusRetirement = "Retirement";
+	/** 暂时分配TemporaryAssignment */
+	public static final String PartyRoleStatusTemporaryAssignment = "TemporaryAssignment";
 
 	// === PartyRole priorityLevel enum ===
 	/** Primary */
@@ -60,4 +96,16 @@ public class PartyConstants {
 	public static final String PartyRoleInAgreementCodeBeneficiary = "Beneficiary";
 	/** NamedDriver车主 */
 	public static final String PartyRoleInAgreementCodeNamedDriver = "NamedDriver";
+
+	// === PartyName usage enum ===
+	/** 出生姓名BirthName */
+	public static final String PartyNameUsageBirthName = "BirthName";
+	/** 商业名称BusinessName */
+	public static final String PartyNameUsageBusinessName = "BusinessName";
+	/** 公司名称CompanyName */
+	public static final String PartyNameUsageCompanyName = "CompanyName";
+	/** 正式名称OfficialName */
+	public static final String PartyNameUsageOfficialName = "OfficialName";
+	/** 商标名称TradingName */
+	public static final String PartyNameUsageTradingName = "TradingName";
 }

@@ -2,6 +2,8 @@ package jie.iaa.bom.Party;
 
 import java.util.Date;
 
+import jie.iaa.bom.Party.utils.PartyConstants;
+
 public class PartyName {
 	private Long id;
 	private String fullName;
@@ -10,6 +12,7 @@ public class PartyName {
 	private Date startDate;
 	private Date endDate;
 	private String description;
+	private String usage = PartyConstants.PartyNameUsageOfficialName; // 用途
 
 	public Long getId() {
 		return id;
@@ -65,5 +68,13 @@ public class PartyName {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+	public String getUsage() {
+		return usage;
+	}
+
+	public void setUsage(String usage) {
+		this.usage = usage;
 	}
 }

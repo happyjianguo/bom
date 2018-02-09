@@ -2,19 +2,21 @@ package jie.iaa.bom.Party;
 
 import java.util.Date;
 
+import jie.iaa.bom.Party.utils.PartyConstants;
+
 public class PartyRole extends RolePlayer {
 	private Long id;
-	private Long rolePlayerId; // is played by (RolePlayer)
-	private String status; // PartyRole status enum
+	private Long rolePlayerId; // is played by(RolePlayer)
+	private String status = PartyConstants.PartyRoleStatusCommenced;
 	private Date statusDate;
 	private String statusReason;
-	private String priorityLevel; // PartyRole priorityLevel enum
+	private String priorityLevel; // PartyRolePriorityLevel enum
 
 	/**
 	 * 维护RolePlayer和PartyRole的关联关系role playing
 	 * 
 	 * @param rolePlayerId
-	 *            is played by (RolePlayer)
+	 *            is played by(RolePlayer)
 	 */
 	public void maintainRolePlaying(Long rolePlayerId) {
 		this.rolePlayerId = rolePlayerId;
@@ -30,6 +32,11 @@ public class PartyRole extends RolePlayer {
 
 	public Long getRolePlayerId() {
 		return rolePlayerId;
+	}
+
+	@Deprecated
+	public void setRolePlayerId(Long rolePlayerId) {
+		this.rolePlayerId = rolePlayerId;
 	}
 
 	public String getStatus() {

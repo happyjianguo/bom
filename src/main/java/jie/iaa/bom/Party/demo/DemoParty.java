@@ -28,9 +28,20 @@ public class DemoParty {
 		repo.saveOneVirtualParty(virtualParty);
 
 		// === Party ===
-		// 投保人、被保险人PersonID
+		// 投保人PersonID
 		Long personPolicyholderId = createPersonPolicyholder(orderId).getId();
+		Person personPolicyholder = repo.findOnePerson(personPolicyholderId);
+		// 投保人关联PartyName
+		Long personPolicyholderPartyNameId = createPersonPolicyholderPartyName().getId();
+		personPolicyholder.maintainPartyName(personPolicyholderPartyNameId);
+		repo.saveOnePerson(personPolicyholder);
+		// 被保险人PersonID
 		Long personInsuredId = createPersonInsured(orderId).getId();
+		Person personInsured = repo.findOnePerson(personInsuredId);
+		// 被保险人关联PartyName
+		Long personInsuredPartyNameId = createPersonInsuredPartyName().getId();
+		personInsured.maintainPartyName(personInsuredPartyNameId);
+		repo.saveOnePerson(personInsured);
 
 		// === PartyRole ===
 		// 投保人、被保险人PartyRoleID
@@ -44,12 +55,11 @@ public class DemoParty {
 		Long partyRolePremiumPayerId = createPartyRoleInAgreement(orderId, personPolicyholderId,
 				PartyConstants.PartyRoleInAgreementCodePremiumPayer).getId();
 
-		// 投保人关联PartyName
-		Long personPartyNameId = createPersonPartyName().getId();
-		Person personPolicyholder = repo.findOnePerson(personPolicyholderId);
-		personPolicyholder.maintainPartyName(personPartyNameId);
+		// 投保人、被保险人主要角色
 		personPolicyholder.setPrimePartyRoleId(partyRolePolicyholderId);
 		repo.saveOnePerson(personPolicyholder);
+		personInsured.setPrimePartyRoleId(partyRoleInsuredId);
+		repo.saveOnePerson(personInsured);
 	}
 
 	private static IPartyRepository repo = new DemoPartyRepository();
@@ -71,6 +81,7 @@ public class DemoParty {
 		ret.setFullName("智能终端-投保向导系统");
 		ret.setShortName("投保向导系统");
 		ret.setNickName("智能终端");
+		ret.setUsage(PartyConstants.PartyNameUsageTradingName);
 		Date now = new Date();
 		ret.setStartDate(now);
 		ret.setEndDate(DateUtils.addYears(now, 20));
@@ -82,7 +93,6 @@ public class DemoParty {
 	/** 投保人Person */
 	private static Person createPersonPolicyholder(Long orderId) {
 		Person ret = new Person();
-		ret.setName("李四");
 		ret.setIdType(PartyConstants.PersonIdTypeID);
 		ret.setIdNo("321081198001295243");
 		ret.setMobile("13333333333");
@@ -96,7 +106,6 @@ public class DemoParty {
 	/** 被保险人Person */
 	private static Person createPersonInsured(Long orderId) {
 		Person ret = new Person();
-		ret.setName("张三");
 		ret.setIdType(PartyConstants.PersonIdTypeID);
 		ret.setIdNo("23090419951228144X");
 		ret.setMobile("18888888888");
@@ -110,7 +119,7 @@ public class DemoParty {
 	/** PartyRoleInAgreement */
 	private static PartyRole createPartyRoleInAgreement(Long orderId, Long rolePlayerId, String code) {
 		PartyRoleInAgreement ret = new PartyRoleInAgreement();
-		ret.setStatus(PartyConstants.PartyRoleStatusActive);
+		ret.setStatus(PartyConstants.PartyRoleStatusCommenced);
 		ret.setStatusDate(new Date());
 		ret.setPriorityLevel(PartyConstants.PartyRolePriorityLevelPrimary);
 		// PartyRoleInAgreement code enum
@@ -125,11 +134,24 @@ public class DemoParty {
 	}
 
 	/** Person PartyName */
-	private static PartyName createPersonPartyName() {
+	private static PartyName createPersonPolicyholderPartyName() {
 		PartyName ret = new PartyName();
-		ret.setFullName("李四");
-		ret.setShortName("李");
+		ret.setFullName("李xx");
 		ret.setNickName("寻找小小");
+		ret.setUsage(PartyConstants.PartyNameUsageBirthName);
+		Date now = new Date();
+		ret.setStartDate(now);
+		ret.setEndDate(DateUtils.addYears(now, 20));
+
+		repo.saveOnePartyName(ret);
+		return ret;
+	}
+
+	private static PartyName createPersonInsuredPartyName() {
+		PartyName ret = new PartyName();
+		ret.setFullName("朱xx");
+		ret.setNickName("小猪猪");
+		ret.setUsage(PartyConstants.PartyNameUsageBirthName);
 		Date now = new Date();
 		ret.setStartDate(now);
 		ret.setEndDate(DateUtils.addYears(now, 20));
